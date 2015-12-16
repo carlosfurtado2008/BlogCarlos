@@ -11,7 +11,7 @@ namespace BlogCarlos.Web.Controllers
 {   [Authorize]
     public class AdministracaoController : Controller
     {
-        //GET: Administracao
+        //GET: Administracao teste
         public ActionResult Index()
         {
             return View();
