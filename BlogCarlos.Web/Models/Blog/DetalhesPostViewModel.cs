@@ -24,19 +24,16 @@ namespace BlogCarlos.Web.Models.Blog
         [StringLength(100, ErrorMessage = " O campo Nome deve possuir no máximo {1} carateres")]
         [Required(ErrorMessage = "* O campo Nome é obrigatório.")]
         public string ComentarioNome { get; set; }
-
         [DisplayName("E-mail")]
         [StringLength(100, ErrorMessage = " O campo E-mail deve possuir no máximo {1} carateres")]
         [EmailAddress(ErrorMessage ="E-mail inválido")]
         public string ComentarioEmail { get; set; }
-
         [DisplayName("Descrição")]
         [Required(ErrorMessage = "O campo Descrição é obrigatório.")]
         public string ComentarioDescricao { get; set; }
-
         [DisplayName("Página Web")]
-        [Required(ErrorMessage = "O campo Página Web é obrigatório.")]
-        public string ComentarioPagina { get; set; }
+        [StringLength(100, ErrorMessage = "O campo Página Web  deve possuir no máximo {1} carateres")]
+        public string ComentarioPaginaWeb { get; set; }
 
 
 
