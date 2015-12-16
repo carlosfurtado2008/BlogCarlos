@@ -1,0 +1,33 @@
+﻿@*Tipamos fortemente a View*@
+@model BlogCarlos.Web.Models.Usuario.ListarUsuarioViewModel
+@{
+    ViewBag.Title = "Usuários";
+}
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/Views/Usuario/Index.js")"></script>"
+}
+
+
+<h2>Usuários</h2>
+
+@Html.ActionLink("Novo Usuário", "CadastrarUsuario")
+@foreach (var item in Model.Usuarios)
+{
+    <h2>@Html.ActionLink(item.Login, "EditarUsuario", "Usuario", new { id = item.Id }, null)</h2>
+
+    <div>
+        @Html.ActionLink("Excluir", "ExcluirUsuario", "Usuario", new { id = item.Id }, new { @class = "excluir-usuario" })
+    </div>
+
+    <div>
+        @Html.ActionLink("Editar", "EditarUsuario", "Usuario", new { id = item.Id }, new { @class = "editar-usuario" })
+    </div>
+    <div>
+        @item.Nome
+    </div>
+}
+
+@Html.Partial("_Paginacao", Model)
+
+

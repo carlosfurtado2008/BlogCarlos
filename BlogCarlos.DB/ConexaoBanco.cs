@@ -1,0 +1,56 @@
+﻿using BlogCarlos.DB.Classes;
+using BlogCarlos.DB.Infra;
+using BlogCarlos.DB.Mapeamento;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BlogCarlos.DB
+{
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+    public class ConexaoBanco : DbContext
+    {   //ctor
+        #region Construtor da Classe
+        public ConexaoBanco() : base("ConexaoMySQL")
+        {
+            Database.Log = (p => Debug.WriteLine(p));
+        }
+        #endregion
+        //prop
+        public DbSet<Arquivo> Arquivos { get; set; }
+        public DbSet<Comentario> Comentarios { get; set; }
+        public DbSet<Download> Downloads { get; set; }
+        public DbSet<Imagem> Imagens { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<TagPost> TagPosts { get; set; }
+        public DbSet<TagClass> TagClass { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Visita> Visitas { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //Cria e Dropa Banco
+            //Database.SetInitializer<ConexaoBanco>(new DropCreateDatabaseAlways<ConexaoBanco>());
+            Database.SetInitializer<ConexaoBanco>(new MeuCriadorDeBanco());
+
+            modelBuilder.Configurations.Add(new ArquivoConfig());
+            modelBuilder.Configurations.Add(new ComentarioConfig());
+            modelBuilder.Configurations.Add(new DownloadConfig());
+            modelBuilder.Configurations.Add(new ImagemConfig());
+            modelBuilder.Configurations.Add(new PostConfig());
+            modelBuilder.Configurations.Add(new TagPostConfig());
+            modelBuilder.Configurations.Add(new TagClassConfig());
+            modelBuilder.Configurations.Add(new UsuarioConfig());
+            modelBuilder.Configurations.Add(new VisitaConfig());
+
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+
+}
+
+
