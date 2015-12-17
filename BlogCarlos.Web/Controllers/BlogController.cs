@@ -29,23 +29,26 @@ namespace BlogCarlos.Web.Controllers
 
             var posts = (from p in conexaoBanco.Posts
                                 where p.Visivel == true
-//1412215                                orderby p.DataPublicacao descending
+                                  orderby p.DataPublicacao descending
                          select p);
             //1412215
             if (!string.IsNullOrEmpty(tag))
             {
-                posts = (from p in posts
+                //prepara a consulta SQL
+                posts = (from p in conexaoBanco.Posts
                          where p.TagPost.Any(x => x.IdTag.ToUpper() == tag.ToUpper())
+                         orderby p.DataPublicacao descending
                          select p);
-
             }
 
             if (!string.IsNullOrEmpty(pesquisa))
             {
-                posts = (from p in posts
+                //prepara a consulta SQL
+                posts = (from p in conexaoBanco.Posts
                          where p.Titulo.ToUpper().Contains(pesquisa.ToUpper())
                             || p.Resumo.ToUpper().Contains(pesquisa.ToUpper())
                             || p.Descricao.ToUpper().Contains(pesquisa.ToUpper())
+                         orderby p.DataPublicacao descending
                          select p);
             }
 
