@@ -147,7 +147,6 @@
     <Compile Include="Models\Administracao\CadastrarPostViewModel.cs" />
     <Compile Include="Models\Blog\DetalhesPostViewModel.cs" />
     <Compile Include="Models\Blog\ListarPostsViewModel.cs" />
-    <Compile Include="Models\Comentario\CadastrarComentarioViewModel.cs" />
     <Compile Include="Models\Login\LoginViewModel.cs" />
     <Compile Include="Models\Usuario\CadastrarUsuarioViewModel.cs" />
     <Compile Include="Models\Usuario\ListarUsuarioViewModel.cs" />

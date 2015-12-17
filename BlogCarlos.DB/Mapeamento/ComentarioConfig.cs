@@ -44,6 +44,10 @@ namespace BlogCarlos.DB.Mapeamento
                 .HasMaxLength(100)
                 .IsRequired();
 
+            Property(x => x.DataHora)
+                .HasColumnName("DATAHORA")
+                .IsRequired();
+                
             Property(x => x.IdPost)
               .HasColumnName("IDPOST")
               .IsRequired();

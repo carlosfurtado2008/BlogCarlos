@@ -47,5 +47,7 @@ namespace Blogcarlos.Web.Models.Administracao
         public bool Visivel { get; set; }
 
         public List<string> Tags { get; set; }
+
+        public List<string> Comentarios { get; set; }
     }
 }

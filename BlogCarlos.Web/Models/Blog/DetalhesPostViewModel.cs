@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using BlogCarlos.DB.Classes;
 
 namespace BlogCarlos.Web.Models.Blog
 {
@@ -18,6 +19,7 @@ namespace BlogCarlos.Web.Models.Blog
         public string Resumo { get; set; }
         public bool Visivel { get; set; }
         public List<string> Tags { get; set; }
+        public int QtdeComentarios { get; set; }
 
         /*CADASTRAR COMENTARIO*/
         [DisplayName("Nome")]
@@ -35,10 +37,12 @@ namespace BlogCarlos.Web.Models.Blog
         [StringLength(100, ErrorMessage = "O campo Página Web  deve possuir no máximo {1} carateres")]
         public string ComentarioPaginaWeb { get; set; }
 
-
-
+        /*Listar Comentarios*/
+        public int PaginaAtual { get; set; }
+        public int TotalPaginas { get; set; }
+        public IList<Comentario> Comentarios { get; set; }
+     
     }
 
 }
 
-}

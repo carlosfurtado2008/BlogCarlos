@@ -1,5 +1,4 @@
-﻿using BlogCarlos.Web.Models.Comentario;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,18 +10,6 @@ namespace BlogCarlos.Web.Controllers
     {
         // GET: Comentario
         public ActionResult Index()
-        {
-            return View();
-        }
-
-
-        public ActionResult CadastrarComentario()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult CadastrarComentario(CadastrarComentarioViewModel viewModel)
         {
             return View();
         }
