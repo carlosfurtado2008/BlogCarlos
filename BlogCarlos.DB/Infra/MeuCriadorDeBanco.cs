@@ -7,8 +7,8 @@ using System.Data.Entity;
 using BlogCarlos.DB.Classes;
 
 namespace BlogCarlos.DB.Infra
-{
-    public class MeuCriadorDeBanco : DropCreateDatabaseAlways<ConexaoBanco>
+{                                  //DropCreateDatabaseAlways
+    public class MeuCriadorDeBanco : DropCreateDatabaseIfModelChanges<ConexaoBanco>
     {
         protected override void Seed(ConexaoBanco context)
         {
