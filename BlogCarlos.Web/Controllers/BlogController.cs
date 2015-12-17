@@ -27,7 +27,7 @@ namespace BlogCarlos.Web.Controllers
             //                    orderby p.DataPublicacao descending
             //                    select p).ToList();
 
-            var posts = (from p in conexaoBanco.Posts
+            var posts = (from p in conexaoBanco.Posts   
                                 where p.Visivel == true
                                   orderby p.DataPublicacao descending
                          select p);
