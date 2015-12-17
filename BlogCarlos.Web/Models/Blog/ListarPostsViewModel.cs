@@ -13,8 +13,11 @@ namespace BlogCarlos.Web.Models.Blog
         public int TotalPaginas{ get; set; }
         //1412215
         public string Tag { get; set; }
-        public List<string> Tags { get; set; }
+        public List<TagClass> Tags { get; set; }
         public string Pesquisa { get; set; }
 
     }
 }
+
+
+

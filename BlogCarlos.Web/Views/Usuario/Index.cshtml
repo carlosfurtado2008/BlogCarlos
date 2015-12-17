@@ -10,8 +10,11 @@
 
 
 <h2>Usuários</h2>
+<div>
+    @Html.ActionLink("Novo Usuário", "CadastrarUsuario")
+    @Html.Partial("_Paginacao", Model)
+</div>
 
-@Html.ActionLink("Novo Usuário", "CadastrarUsuario")
 @foreach (var item in Model.Usuarios)
 {
     <h2>@Html.ActionLink(item.Login, "EditarUsuario", "Usuario", new { id = item.Id }, null)</h2>
@@ -28,6 +31,6 @@
     </div>
 }
 
-@Html.Partial("_Paginacao", Model)
+
 
 

@@ -27,27 +27,28 @@
                titulo = HttpUtility.UrlDecode(item.Titulo)
            }, null)
             </h2>
-
             <div>
-                <div class="icone-calendario div-imagem"></div>
-                @item.DataPublicacao.ToString("dd/MM/yyyy HH:mm")
-                <div class="icone-autor div-imagem"></div>
-                @item.Autor
-                <div class="icone-comentario div-imagem"></div>
-                <a href="@Url.Action("Post", "Blog", new
+                    <div class="icone-calendario div-imagem"></div>
+                    @item.DataPublicacao.ToString("dd/MM/yyyy HH:mm")
+                    <div class="icone-autor div-imagem"></div>
+                    @item.Autor
+                    <div class="icone-comentario div-imagem"></div>
+                    <a href="@Url.Action("Post", "Blog", new
                    {  id = item.Id,
                        ano = item.DataPublicacao.Year,
                        mes = item.DataPublicacao.Month,
                        dia = item.DataPublicacao.Day,
                        titulo =item.Titulo
-                   })#comentarios">>@item.QtdeComentarios>@item.QtdeComentarios.ToString()</a>
+                   })#comentarios">@item.QtdeComentarios.ToString()</a>
 
                 @if (Request.IsAuthenticated)
                 {
+
                     <div class="icone-editar div-imagem"></div>
                     @Html.ActionLink("Editar", "EditarPost", "Administracao", new { id = item.Id }, null)
                     <div class="icone-excluir div-imagem"></div>
                     @Html.ActionLink("Excluir", "ExcluirPost", "Administracao", new { id = item.Id }, new { @class = "excluir-post" })
+                  
                 }
             </div>
 
@@ -65,14 +66,14 @@
                titulo = HttpUtility.UrlDecode(item.Titulo)
            }, null)
             </div>
-        }
-    </div>
+            }
+        </div>
     <div class="col-md-2">
         <h3>Tags</h3>
         <ul>
             @foreach (var item in Model.Tags)
             {
-                <li>@Html.ActionLink(item, "Index", "Blog", new { tag = item }, null)</li>
+                <li>@Html.ActionLink(item.Tag, "Index", "Blog", new { tag = item.Tag}, null)</li>
             }
         </ul>
     </div>

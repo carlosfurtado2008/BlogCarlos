@@ -76,7 +76,7 @@ namespace BlogCarlos.Web.Controllers
             viewModel.Tags = (from p in conexaoBanco.TagClass
                               where conexaoBanco.TagPosts.Any(x => x.IdTag == p.Tag)
                               orderby  p.Tag
-                              select p.Tag).ToList();
+                              select p).ToList();
             //viewModel.Posts = posts;
             viewModel.Pesquisa = pesquisa;
             return View(viewModel);
@@ -163,7 +163,7 @@ namespace BlogCarlos.Web.Controllers
                         dia = post.DataPublicacao.Day,
                         titulo = post.Titulo,
                         id = post.Id
-                    }) + "#comentarios";
+                    }) + "#comentarios");
                 }
                 catch (Exception exp)
                 {
@@ -176,3 +176,4 @@ namespace BlogCarlos.Web.Controllers
     }
 }
 
+   

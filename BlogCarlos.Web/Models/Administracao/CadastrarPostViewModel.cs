@@ -48,6 +48,6 @@ namespace Blogcarlos.Web.Models.Administracao
 
         public List<string> Tags { get; set; }
 
-        public List<string> Comentarios { get; set; }
+        //public List<string> Comentarios { get; set; }
     }
 }
