@@ -4,28 +4,29 @@
     var paginaanterior = Model.PaginaAtual - 1;
     var proximapagina = Model.PaginaAtual + 1;
 
+    var paginaAnterior = Model.PaginaAtual - 1;
+    var proximaPagina = Model.PaginaAtual + 1;
+
     <div class="pagination">
         @if (Model.PaginaAtual > 1)
         {
-         <a href="@Url.Action("Post", new
-             {
-                 id = Model.Id,
-                 pagina = paginaanterior
-             })#comentarios" rel="prev">Página anterior</a>
-            if (proximapagina != -1)
+            <a href="@Url.Action("Post", new
+                {
+                    id = Model.Id,
+                    pagina = paginaAnterior
+                })#comentarios" rel="prev">Página anterior</a>
+            if (proximaPagina != -1)
             {
-                <text>!</text>
+                <text>|</text>
             }
         }
-
-         @if (proximapagina != -1)
-         {
+        @if (proximaPagina != -1)
+        {
             <a href="@Url.Action("Post", new
-             {
-                 id = Model.Id,
-                 pagina = proximapagina
-             })#comentarios" rel="prev">Próxima Página </a>
-             
-         }
+                {
+                    id = Model.Id,
+                    pagina = proximaPagina
+                })#comentarios" rel="prev">Próxima página</a>
+        }
     </div>
 }
