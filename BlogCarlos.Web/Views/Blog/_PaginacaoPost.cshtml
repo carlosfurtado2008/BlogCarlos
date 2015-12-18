@@ -1,0 +1,31 @@
+﻿@model BlogCarlos.Web.Models.Blog.DetalhesPostViewModel
+@if (Model.TotalPaginas > 1)
+{
+    var paginaanterior = Model.PaginaAtual - 1;
+    var proximapagina = Model.PaginaAtual + 1;
+
+    <div class="pagination">
+        @if (Model.PaginaAtual > 1)
+        {
+         <a href="@Url.Action("Post", new
+             {
+                 id = Model.Id,
+                 pagina = paginaanterior
+             })#comentarios" rel="prev">Página anterior</a>
+            if (proximapagina != -1)
+            {
+                <text>!</text>
+            }
+        }
+
+         @if (proximapagina != -1)
+         {
+            <a href="@Url.Action("Post", new
+             {
+                 id = Model.Id,
+                 pagina = proximapagina
+             })#comentarios" rel="prev">Próxima Página </a>
+             
+         }
+    </div>
+}
